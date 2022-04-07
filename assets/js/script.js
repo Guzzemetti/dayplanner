@@ -22,6 +22,8 @@ const info = document.getElementsByClassName("row");
 let currentHour = moment().format('H');
 // console.log(currentHour);
 
+
+// targets each row and checks their assignment against the current time to see what style they should use
 Array.from(info).forEach(row => {
   let infoString = row.id
 //   If the infoString contains a valid integer, it executes below to retrieve an integer value for each row to then check against in the below if statements
