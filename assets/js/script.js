@@ -19,36 +19,37 @@ $(document).ready(function(){
 
 // Selects elements with a class of row
 const info = document.getElementsByClassName("row");
-let currentHour = moment().format('H');
+let currentHour = parseInt(moment().format('H'));
 // console.log(currentHour);
 
-
+// console.log(Array.from(info));
 // targets each row and checks their assignment against the current time to see what style they should use
 Array.from(info).forEach(row => {
-  let infoString = row.id
+  let rowId = row.id
+  // console.log(row.id);
 //   If the infoString contains a valid integer, it executes below to retrieve an integer value for each row to then check against in the below if statements
-  if (infoString) {
-    rowHour = parseInt(infoString);
-    console.log(infoString);
-  }
+  if (rowId) {
+    rowHour = parseInt(rowId);
+    console.log(rowId);
 
   // Add function to compare current time to the hour-block sections to assign colors
-  if (rowHour) {
     // Compares row id to current hour and sets color accordingly
     // If the current hour is the same hour as the row, that row will be styled red
-    if (currentHour === rowHour) {
-      $(".information").addClass("present");
+    if (currentHour > rowHour) {
+      $(".information").addClass("past");
     } 
     // Else, if the current time is less than or "before" the row hour, it styles it green
-    else if ((currentHour < rowHour)) {
+    else if (currentHour < rowHour) {
         $(".information").addClass("future");
     } 
     // Else, it'll check to see if the current hour is greater than the row hour, if so it'll style it grey
-    else if ((currentHour > rowHour)) {
-        $(".information").addClass("past");
+    else {
+        $(".information").addClass("present");
     } 
   }
+
 });
+
 }) 
 
 // Retrieves local storage information upon page reload
@@ -59,7 +60,8 @@ $("#12 .information").val(localStorage.getItem("12"))
 $("#13 .information").val(localStorage.getItem("13"))
 $("#14 .information").val(localStorage.getItem("14"))
 $("#15 .information").val(localStorage.getItem("15"))
-
+$("#16 .information").val(localStorage.getItem("16"))
+$("#17 .information").val(localStorage.getItem("17"))
 
 
 
