@@ -65,3 +65,10 @@ $("#17 .information").val(localStorage.getItem("17"))
 
 
 
+// for (let i = 9; i <18; i++){
+//   element = document.getElementById(`$[i]`)
+//   i < currentHour ?? element.addClass("past");
+//   i > currentHour ?? element.addClass("future");
+//   element.addClass("present");
+
+// }
